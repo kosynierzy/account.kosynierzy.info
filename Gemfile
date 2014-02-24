@@ -17,3 +17,11 @@ gem 'uglifier', '>= 1.3.0'
 # views
 gem 'slim-rails'
 gem 'rails-i18n', '~> 4.0.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta2'
+end
+
+group :test do
+  gem 'capybara', '~> 2.2.1'
+end
