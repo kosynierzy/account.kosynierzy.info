@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.0'
 
 # core
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'figaro', '~> 0.7.0'
 gem 'pg'
 # gem 'unicorn'
