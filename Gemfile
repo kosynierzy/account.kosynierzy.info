@@ -24,6 +24,7 @@ gem 'rails-i18n', '~> 4.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
+  gem 'letter_opener'
 end
 
 group :test do
