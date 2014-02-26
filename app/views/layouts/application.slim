@@ -1,0 +1,16 @@
+doctype html
+html lang="pl"
+  head
+    meta charset="utf-8"
+    title= t('page.title')
+
+    = stylesheet_link_tag    "application", media: "all"
+    = csrf_meta_tags
+  body
+
+  p.notice= notice
+  p.alert= alert
+
+  = yield
+
+  = javascript_include_tag "application"
