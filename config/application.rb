@@ -24,5 +24,19 @@ module Kosynierzy
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :pl
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: true,
+        controller_specs: true,
+        model_specs: true,
+        request_specs: true
+      g.helper false
+      g.stylesheets false
+      g.javascripts false
+    end
   end
 end
