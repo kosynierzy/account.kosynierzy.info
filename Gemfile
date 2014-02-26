@@ -14,6 +14,10 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 
+# authentication
+gem 'devise', '~> 3.2.3'
+gem 'devise-i18n', '~> 0.10.2'
+
 # views
 gem 'slim-rails'
 gem 'rails-i18n', '~> 4.0.0'
