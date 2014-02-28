@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/jandudulski/devise-async.git
+  revision: 169bf04a81852edf695f026a3ca5b286a6de8eef
+  branch: backburner
+  specs:
+    devise-async (0.9.0)
+      devise (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -195,6 +203,7 @@ DEPENDENCIES
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.3)
+  devise-async!
   devise-i18n (~> 0.10.2)
   figaro (~> 0.7.0)
   jquery-rails
