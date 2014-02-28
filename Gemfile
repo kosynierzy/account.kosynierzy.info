@@ -18,6 +18,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise', '~> 3.2.3'
 gem 'devise-i18n', '~> 0.10.2'
 
+# background-processing
+gem 'backburner', '~> 0.4.5'
+
 # views
 gem 'slim-rails'
 gem 'rails-i18n', '~> 4.0.0'
