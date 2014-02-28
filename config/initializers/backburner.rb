@@ -1,5 +1,5 @@
 Backburner.configure do |config|
-  config.beanstalk_url = [Figaro.env.beanstalkd_url]
+  config.beanstalk_url = [Figaro.env.beanstalk_url]
   config.tube_namespace = "account.kosynierzy.#{Rails.env}"
   config.on_error = lambda { |e| puts e }
   config.max_job_retries = 3

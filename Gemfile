@@ -20,6 +20,7 @@ gem 'devise-i18n', '~> 0.10.2'
 
 # background-processing
 gem 'backburner', '~> 0.4.5'
+gem 'beanstalkd_view', '~> 1.2.6'
 
 # views
 gem 'slim-rails'
