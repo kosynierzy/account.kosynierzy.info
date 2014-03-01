@@ -6,6 +6,7 @@ ruby '2.1.0'
 gem 'rails', '4.0.3'
 gem 'figaro', '~> 0.7.0'
 gem 'pg'
+gem 'coveralls', require: false
 # gem 'unicorn'
 
 # assets
