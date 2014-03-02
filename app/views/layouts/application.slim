@@ -13,6 +13,10 @@ html lang="pl"
       p.notice= notice
       p.alert= alert
 
+      - if user_signed_in?
+        p
+          = link_to 'Sign out', destroy_user_session_path
+
       = yield
 
     = javascript_include_tag "application"

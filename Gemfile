@@ -35,8 +35,10 @@ gem 'slim-rails'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'letter_opener'
+  gem 'pry-rails', '~> 0.3.2'
 end
 
 group :test do
   gem 'capybara', '~> 2.2.1'
+  gem 'factory_girl_rails', '~> 4.4.1'
 end
