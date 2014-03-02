@@ -6,11 +6,13 @@ html lang="pl"
 
     = stylesheet_link_tag    "application", media: "all"
     = csrf_meta_tags
+    = javascript_include_tag "//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9:all.js"
   body
 
-  p.notice= notice
-  p.alert= alert
+    .container
+      p.notice= notice
+      p.alert= alert
 
-  = yield
+      = yield
 
-  = javascript_include_tag "application"
+    = javascript_include_tag "application"

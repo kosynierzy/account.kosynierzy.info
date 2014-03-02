@@ -1,7 +1,15 @@
 /*
+ *= require normalize-rails
  *= require_self
- *= require_tree .
  */
 
 @import "bourbon";
+@import "base/variables";
+@import "base/reset";
+
+@import "mixins";
+
 @import "neat";
+
+@import "modules/layout";
+
