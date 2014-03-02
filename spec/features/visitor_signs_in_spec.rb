@@ -28,13 +28,4 @@ feature 'Visitor signs in' do
     expect(page).to have_content 'Nieprawidłowa nazwa użytkownika lub hasło.'
     expect(page).to have_button 'Sign in'
   end
-
-  def sign_in_with(email, password)
-    visit '/'
-
-    fill_in 'Email', with: email
-    fill_in 'Password', with: password
-
-    click_button 'Sign in'
-  end
 end
