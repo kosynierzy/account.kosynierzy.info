@@ -3,5 +3,11 @@ Kosynierzy::Application.routes.draw do
 
   devise_for :users
 
-  root to: 'home#index'
+  devise_scope :user do
+    authenticated :user do
+      root to: 'devise/registrations#edit', as: :authenticated_user
+    end
+
+    root to: 'devise/sessions#new'
+  end
 end
