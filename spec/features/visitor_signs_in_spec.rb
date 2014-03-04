@@ -12,7 +12,7 @@ feature 'Visitor signs in' do
     sign_in_with email, password
 
     expect(page).to have_content 'Zalogowano'
-    expect(page).to have_link 'Sign out'
+    expect(page).to have_button 'Sign out'
   end
 
   scenario 'with invalid password' do

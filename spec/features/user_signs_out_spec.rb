@@ -14,6 +14,6 @@ feature 'User signs out' do
   end
 
   def sign_out
-    page.click_link 'Sign out'
+    page.click_button 'Sign out'
   end
 end
