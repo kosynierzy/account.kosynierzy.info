@@ -11,7 +11,5 @@
 
 # Development
 
-* `cp config/database.example.yml config/database.yml`
-* `cp config/application.example.yml config/application.yml`
-* `bundle exec rake db:setup`
+* `bin/setup`
 * `rails server`
