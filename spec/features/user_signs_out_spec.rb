@@ -12,8 +12,4 @@ feature 'User signs out' do
     expect(page).to have_content 'Wylogowano pomyślnie.'
     expect(page).to have_button 'Sign in'
   end
-
-  def sign_out
-    page.click_button 'Sign out'
-  end
 end

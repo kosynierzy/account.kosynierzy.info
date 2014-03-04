@@ -18,5 +18,9 @@ module Features
 
       click_button 'Sign up'
     end
+
+    def sign_out
+      page.click_button 'Sign out'
+    end
   end
 end
