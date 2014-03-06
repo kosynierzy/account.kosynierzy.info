@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
          :timeoutable,
          :trackable,
          :validatable
+
+  protected
+
+  def after_confirmation
+    Backburner.enqueue(AdminNotificationWorker, 'user_confirmed', email)
+  end
 end

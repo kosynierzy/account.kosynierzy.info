@@ -10,5 +10,5 @@ Backburner.configure do |config|
   # TODO: log to file
   config.logger = Logger.new(STDOUT)
   config.primary_queue = "mailer"
-  config.priority_labels = { custom: 50, useless: 100 }
+  config.priority_labels = { mailer: 50, notifier: 100 }
 end
