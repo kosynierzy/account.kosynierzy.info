@@ -1,5 +1,7 @@
 Kosynierzy::Application.routes.draw do
-  mount BeanstalkdView::Server, at: '/beanstalkd'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount BeanstalkdView::Server, at: '/beanstalkd'
+  end
 
   devise_for :users, skip: :registrations
 
