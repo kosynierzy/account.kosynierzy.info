@@ -9,4 +9,20 @@ describe User do
       subject.confirm!
     end
   end
+
+  describe "#admin?" do
+    context "for regular user" do
+      it "returns false" do
+        user = create(:user)
+        expect(user.admin?).to be(false)
+      end
+    end
+
+    context "for admin user" do
+      it "returns true" do
+        user = create(:user, admin: true)
+        expect(user.admin?).to be(true)
+      end
+    end
+  end
 end
