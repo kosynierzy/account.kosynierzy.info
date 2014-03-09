@@ -1,5 +1,6 @@
 Kosynierzy::Application.routes.draw do
   use_doorkeeper
+
   authenticate :user, lambda { |u| u.admin? } do
     mount BeanstalkdView::Server, at: '/beanstalkd'
   end
@@ -18,6 +19,12 @@ Kosynierzy::Application.routes.draw do
 
     authenticated :user do
       root to: 'devise/registrations#edit', as: :authenticated_user
+    end
+
+    namespace :api do
+      namespace :v1 do
+        get :me, to: 'users#me'
+      end
     end
 
     root to: 'devise/sessions#new'
