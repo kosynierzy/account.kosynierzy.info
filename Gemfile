@@ -30,6 +30,7 @@ gem 'devise-i18n', '~> 0.10.2'
 gem 'rails-i18n', '~> 4.0.0'
 
 # views
+gem 'representable', '~> 1.7.6'
 gem 'slim-rails'
 
 group :development, :test do

@@ -24,10 +24,24 @@ describe Api::V1::UsersController do
         expect(response.status).to eq(200)
       end
 
-      it 'returns the user as json' do
-        get :me, format: :json
+      describe 'json body' do
+        let(:parsed_body) { JSON.parse(response.body) }
 
-        expect(response.body).to eq(user.to_json)
+        before do
+          get :me, format: :json
+        end
+
+        it 'contains limited set of keys' do
+          expect(parsed_body.keys).to match_array(%w{id email})
+        end
+
+        it 'contains user email' do
+          expect(parsed_body['email']).to eq(user.email)
+        end
+
+        it 'contains user id' do
+          expect(parsed_body['id']).to eq(user.id)
+        end
       end
     end
   end
