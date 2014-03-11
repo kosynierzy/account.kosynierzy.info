@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+  validates :username, presence: true, uniqueness: true
+
   protected
 
   def after_confirmation
