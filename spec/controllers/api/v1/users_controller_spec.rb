@@ -32,7 +32,7 @@ describe Api::V1::UsersController do
         end
 
         it 'contains limited set of keys' do
-          expect(parsed_body.keys).to match_array(%w{id email})
+          expect(parsed_body.keys).to match_array(%w{id email username})
         end
 
         it 'contains user email' do
@@ -41,6 +41,10 @@ describe Api::V1::UsersController do
 
         it 'contains user id' do
           expect(parsed_body['id']).to eq(user.id)
+        end
+
+        it 'contains user username' do
+          expect(parsed_body['username']).to eq(user.username)
         end
       end
     end
