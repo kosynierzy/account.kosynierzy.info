@@ -25,7 +25,7 @@ feature 'Visitor signs in' do
   scenario 'with not existing email' do
     sign_in_with 'invalid@example.com', 'password'
 
-    expect(page).to have_content 'Nieprawidłowa nazwa użytkownika lub hasło.'
+    expect(page).to have_content 'Niepoprawny adres email lub hasło.'
     expect(page).to have_button 'Sign in'
   end
 end
