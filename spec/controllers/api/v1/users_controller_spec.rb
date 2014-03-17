@@ -15,7 +15,7 @@ describe Api::V1::UsersController do
       let(:token) { double(accessible?: true, resource_owner_id: user.id) }
 
       before do
-        controller.stub(doorkeeper_token: token)
+        allow(controller).to receive(:doorkeeper_token).and_return(token)
       end
 
       it 'responds with 200' do
