@@ -39,6 +39,10 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
 end
 
+group :development do
+  gem 'foreman'
+end
+
 group :test do
   gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.4.1'
