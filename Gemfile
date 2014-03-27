@@ -7,7 +7,6 @@ gem 'rails', '4.0.4'
 gem 'figaro', '~> 0.7.0'
 gem 'pg'
 gem 'coveralls', require: false
-# gem 'unicorn'
 
 # assets
 gem 'coffee-rails', '~> 4.0.0'
@@ -29,6 +28,9 @@ gem 'devise-async', git: 'git://github.com/jandudulski/devise-async.git', branch
 gem 'devise-i18n', '~> 0.10.2'
 gem 'rails-i18n', '~> 4.0.0'
 
+# server
+gem 'puma'
+
 # views
 gem 'representable', '~> 1.7.6'
 gem 'slim-rails'
@@ -41,6 +43,7 @@ end
 
 group :development do
   gem 'foreman'
+  gem 'mina'
 end
 
 group :test do
