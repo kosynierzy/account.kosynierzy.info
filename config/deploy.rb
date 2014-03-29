@@ -20,7 +20,7 @@ settings.rake_assets_precompile = lambda { "#{rake} assets:precompile" }
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log', 'tmp', 'config/application.yml']
+set :shared_paths, ['config/database.yml', 'log', 'tmp', 'config/application.yml', 'config/puma.rb']
 
 # Optional settings:
 set :user, 'deploy'    # Username in the server to SSH to.
@@ -53,7 +53,10 @@ task :setup => :environment do
   queue! %[touch "#{deploy_to}/shared/config/application.yml"]
   queue  %[echo "-----> Be sure to edit 'shared/config/application.yml'."]
 
-  queue! %[mkdir -p "#{deploy_to}/shared/tmp"]
+  queue! %[touch "#{deploy_to}/shared/config/puma.rb"]
+  queue  %[echo "-----> Be sure to edit 'shared/config/puma.rb'."]
+
+  queue! %[mkdir -p "#{deploy_to}/shared/tmp/puma"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/tmp"]
 end
 
