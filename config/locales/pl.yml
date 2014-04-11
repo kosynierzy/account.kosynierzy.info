@@ -5,7 +5,7 @@ pl:
   sign_up: 'Załóż konto'
   forgot_password: 'Nie pamiętam hasła'
   missing_confirmation: 'Wyślij ponownie potwierdzenie założenia konta'
-  missing_unlock: 'Odblokuj konta'
+  missing_unlock: 'Odblokuj konto'
   helpers:
     label:
       user:
