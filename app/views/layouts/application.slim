@@ -8,17 +8,20 @@ html lang="pl"
     = csrf_meta_tags
     = javascript_include_tag "//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9:all.js"
   body
+    .header
+      .container
+        = image_tag 'herb-slask.png', class: 'herb', alt: '', height: 115
+    .body
+      .container
+        p.notice= notice
+        p.alert= alert
 
-    .container
-      p.notice= notice
-      p.alert= alert
-
-      - if user_signed_in?
-        p
-          = form_tag(destroy_user_session_path, method: :delete) do
-            = submit_tag 'Sign out'
+        - if user_signed_in?
+          p
+            = form_tag(destroy_user_session_path, method: :delete) do
+              = submit_tag 'Sign out'
 
 
-      = yield
+        = yield
 
     = javascript_include_tag "application"
