@@ -1,3 +1,15 @@
 pl:
+  email: 'Email'
+  password: 'Hasło'
+  sign_in: 'Zaloguj'
+  sign_up: 'Załóż konto'
+  forgot_password: 'Nie pamiętam hasła'
+  missing_confirmation: 'Wyślij ponownie potwierdzenie założenia konta'
+  missing_unlock: 'Odblokuj konta'
+  helpers:
+    label:
+      user:
+        remember_me: 'Nie wylogowuj'
   page:
-    title: Kosynierzy
+    title: Stowarzyszenie Kibiców WKS Śląsk Wrocław Kosynierzy
+  cookies_disclaimer: 'Wykorzystujemy ciasteczka (ang. cookies) oraz podobne technologie w celu świadczenia usług dostosowania serwisu do indywidualnych preferencji użytkowników oraz w celach statystycznych. Możesz zawsze wyłączyć ten mechanizm w ustawieniach przeglądarki. Korzystanie z naszego serwisu bez zmiany ustawień przeglądarki oznacza, że cookies będą zapisane w pamięci urządzenia.'
