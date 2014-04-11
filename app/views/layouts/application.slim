@@ -13,8 +13,10 @@ html lang="pl"
         = image_tag 'herb-slask.png', class: 'herb', alt: '', height: 115
     .body
       .container
-        p.notice= notice
-        p.alert= alert
+        - if notice.present?
+          p.notice= notice
+        - if alert.present?
+          p.alert= alert
 
         - if user_signed_in?
           p
