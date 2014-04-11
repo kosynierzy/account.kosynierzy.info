@@ -10,7 +10,8 @@ html lang="pl"
   body
     .header
       .container
-        = image_tag 'herb-slask.png', class: 'herb', alt: '', height: 115
+        = link_to root_path do
+          = image_tag 'herb-slask.png', class: 'herb', alt: '', height: 115
     .body
       .container
         - if notice.present?
