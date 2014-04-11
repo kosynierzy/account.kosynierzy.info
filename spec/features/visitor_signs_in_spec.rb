@@ -12,20 +12,20 @@ feature 'Visitor signs in' do
     sign_in_with email, password
 
     expect(page).to have_content 'Zalogowano'
-    expect(page).to have_button 'Sign out'
+    expect(page).to have_button 'Wyloguj'
   end
 
   scenario 'with invalid password' do
     sign_in_with email, 'invalid'
 
     expect(page).to have_content 'Niepoprawny adres email lub hasło.'
-    expect(page).to have_button 'Sign in'
+    expect(page).to have_button 'Zaloguj'
   end
 
   scenario 'with not existing email' do
     sign_in_with 'invalid@example.com', 'password'
 
     expect(page).to have_content 'Niepoprawny adres email lub hasło.'
-    expect(page).to have_button 'Sign in'
+    expect(page).to have_button 'Zaloguj'
   end
 end

@@ -1,0 +1,53 @@
+.user-form {
+  transition: all 550ms ease-in-out 0s;
+}
+
+.user-form__element {
+  font-size: 2em;
+  padding: .25em;
+
+  input {
+    padding: 6px 12px;
+    width: 100%;
+
+    border: 1px solid $color-white;
+    border-radius: 3px;
+
+    &:focus {
+      border: 1px solid $color-forestgreen;
+    }
+  }
+}
+
+.user-form__email {
+  @extend .user-form__element;
+}
+
+.user-form__password {
+  @extend .user-form__element;
+
+  .help {
+    display: block;
+    text-align: left;
+    font-size: 0.5em;
+    font-style: italic;
+    color: $color-grey;
+  }
+}
+
+.user-form__username {
+  @extend .user-form__element;
+}
+
+.user-form__remember_me {
+  text-align: right;
+  padding: .5em;
+
+  label {
+    margin-left: .25em;
+  }
+}
+
+.user-form__buttons {
+  @extend .user-form__element;
+}

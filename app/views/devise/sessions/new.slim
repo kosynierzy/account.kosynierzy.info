@@ -1,16 +1,16 @@
-.login-form
+.user-form
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .login-form__email
+    .user-form__email
       = f.email_field :email, autofocus: true, placeholder: t('email')
 
-    .login-form__password
+    .user-form__password
       = f.password_field :password, placeholder: t('password')
 
-    .login-form__remember_me
+    .user-form__remember_me
       = f.check_box :remember_me
       = f.label :remember_me
 
-    .login-form__buttons
+    .user-form__buttons
       = f.submit t('sign_in')
 
 = render "devise/shared/links"

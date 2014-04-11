@@ -11,21 +11,18 @@ feature 'Visitor signs up' do
     sign_up_with 'username', 'invalid_email', 'password', 'password'
 
     expect(page).to have_content 'Email jest nieprawidłowe'
-    expect(page).to have_content 'Sign up'
   end
 
   scenario 'with blank password' do
     sign_up_with 'username', 'valid@example.com', '', ''
 
     expect(page).to have_content 'Password nie może być puste'
-    expect(page).to have_content 'Sign up'
   end
 
   scenario 'with passwords mismatch' do
     sign_up_with 'username', 'valid@example.com', 'password', 'password_confirmation'
 
     expect(page).to have_content 'Password confirmation nie zgadza się z potwierdzeniem'
-    expect(page).to have_content 'Sign up'
   end
 
   scenario 'with existing email' do
@@ -34,14 +31,12 @@ feature 'Visitor signs up' do
     sign_up_with 'username', 'valid@example.com', 'password', 'password'
 
     expect(page).to have_content 'Email zostało już zajęte'
-    expect(page).to have_content 'Sign up'
   end
 
   scenario 'with missing username' do
     sign_up_with '', 'valid@example.com', 'password', 'password'
 
     expect(page).to have_content 'Username nie może być puste'
-    expect(page).to have_content 'Sign up'
   end
 
   scenario 'with existing username' do
@@ -50,6 +45,5 @@ feature 'Visitor signs up' do
     sign_up_with 'username', 'valid@example.com', 'password', 'password'
 
     expect(page).to have_content 'Username zostało już zajęte'
-    expect(page).to have_content 'Sign up'
   end
 end

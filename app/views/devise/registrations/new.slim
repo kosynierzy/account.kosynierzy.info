@@ -1,29 +1,20 @@
-h2
-  | Sign up
+.user-form
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+    .user-form__email
+      = f.email_field :email, autofocus: true, placeholder: t('email')
 
-  div
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
+    .user-form__username
+      = f.text_field :username, placeholder: t('username')
 
-  div
-    = f.label :username
-    br
-    = f.text_field :username
+    .user-form__password
+      = f.password_field :password, placeholder: t('password')
 
-  div
-    = f.label :password
-    br
-    = f.password_field :password
+    .user-form__password
+      = f.password_field :password_confirmation, placeholder: t('password_confirmation')
 
-  div
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation
-
-  div= f.submit "Sign up"
+    .user-form__buttons
+      = f.submit t('sign_up')
 
 = render "devise/shared/links"

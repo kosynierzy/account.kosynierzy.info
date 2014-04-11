@@ -10,6 +10,6 @@ feature 'User signs out' do
     sign_out
 
     expect(page).to have_content 'Wylogowano pomyślnie.'
-    expect(page).to have_button 'Sign in'
+    expect(page).to have_button 'Zaloguj'
   end
 end

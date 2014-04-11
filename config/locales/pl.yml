@@ -1,15 +1,24 @@
 pl:
   email: 'Email'
   password: 'Hasło'
+  password_confirmation: 'Powtórz hasło'
+  password_current: 'Aktualne hasło'
+  password_new: 'Nowe hasło'
+  password_help:
+    leave_empty: 'Zostaw puste jeśli nie chcesz zmienić'
+    current: 'Podaj hasło, żeby potwierdzić zmiany'
   sign_in: 'Zaloguj'
   sign_up: 'Załóż konto'
+  sign_out: 'Wyloguj'
+  update: 'Zapisz'
   forgot_password: 'Nie pamiętam hasła'
   missing_confirmation: 'Wyślij ponownie potwierdzenie założenia konta'
   missing_unlock: 'Odblokuj konto'
+  username: 'Nazwa użytkownika'
   helpers:
     label:
       user:
         remember_me: 'Nie wylogowuj'
   page:
-    title: Stowarzyszenie Kibiców WKS Śląsk Wrocław Kosynierzy
+    title: 'Stowarzyszenie Kibiców WKS Śląsk Wrocław Kosynierzy'
   cookies_disclaimer: 'Wykorzystujemy ciasteczka (ang. cookies) oraz podobne technologie w celu świadczenia usług dostosowania serwisu do indywidualnych preferencji użytkowników oraz w celach statystycznych. Możesz zawsze wyłączyć ten mechanizm w ustawieniach przeglądarki. Korzystanie z naszego serwisu bez zmiany ustawień przeglądarki oznacza, że cookies będą zapisane w pamięci urządzenia.'
