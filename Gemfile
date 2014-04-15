@@ -30,6 +30,7 @@ gem 'rails-i18n', '~> 4.0.0'
 
 # server
 gem 'puma'
+gem 'sentry-raven'
 
 # views
 gem 'representable', '~> 1.7.6'
