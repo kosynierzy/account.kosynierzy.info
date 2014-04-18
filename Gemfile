@@ -10,14 +10,14 @@ gem 'coveralls', require: false
 
 # assets
 gem 'coffee-rails', '~> 4.0.0'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'neat', '~> 1.5.0'
 gem 'normalize-rails', '~> 3.0'
 
 # authentication
 gem 'devise', '~> 3.2.3'
-gem 'doorkeeper', '~> 1.0.0'
+gem 'doorkeeper', '~> 1.1.0'
 
 # background-processing
 gem 'backburner', '~> 0.4.5'
@@ -33,7 +33,7 @@ gem 'puma'
 gem 'sentry-raven'
 
 # views
-gem 'representable', '~> 1.7.6'
+gem 'representable', '~> 1.8.0'
 gem 'slim-rails'
 
 group :development, :test do
