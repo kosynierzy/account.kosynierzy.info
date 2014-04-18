@@ -15,6 +15,10 @@ pl:
   missing_confirmation: 'Wyślij ponownie potwierdzenie założenia konta'
   missing_unlock: 'Odblokuj konto'
   username: 'Nazwa użytkownika'
+  waiting_for_confirmation: 'Oczekiwanie na potwierdzenie adresu: %{email}'
+  resend_unlock_instructions: 'Odblokuj konto'
+  reset_password_instructions: 'Zresetuj hasło'
+  resend_confirmation_instructions: 'Potwierdź konto'
   helpers:
     label:
       user:
