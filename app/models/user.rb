@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+
   devise :async,
          :confirmable,
          :database_authenticatable,
@@ -11,6 +13,8 @@ class User < ActiveRecord::Base
          :validatable
 
   validates :username, presence: true, uniqueness: true
+
+  has_gravatar
 
   protected
 

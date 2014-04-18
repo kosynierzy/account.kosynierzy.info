@@ -1,5 +1,8 @@
 .user-form
   .user-form__myname
+    .user-form__avatar
+      = link_to 'http://gravatar.com' do
+        = image_tag current_user.gravatar_url, alt: 'avatar'
     = current_user.username
     = form_tag(destroy_user_session_path, method: :delete) do
       = submit_tag t('sign_out')

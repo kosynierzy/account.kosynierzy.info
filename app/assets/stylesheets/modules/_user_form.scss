@@ -2,6 +2,10 @@
   transition: all 550ms ease-in-out 0s;
 }
 
+.user-form__avatar img {
+  border-radius: 50%;
+}
+
 .user-form__element {
   font-size: 2em;
   padding: .25em;

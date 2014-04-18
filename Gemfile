@@ -33,6 +33,7 @@ gem 'puma'
 gem 'sentry-raven'
 
 # views
+gem 'gravtastic'
 gem 'representable', '~> 1.8.0'
 gem 'slim-rails'
 
