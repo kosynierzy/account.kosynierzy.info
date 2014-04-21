@@ -5,7 +5,7 @@ describe User do
     subject { create(:user) }
 
     it "enqueues admin notification" do
-      expect(Backburner).to receive(:enqueue).with(AdminNotificationWorker, 'user_confirmed', subject.email)
+      expect(AdminNotificationWorker).to receive(:perform_async).with('user_confirmed', subject.email)
       subject.confirm!
     end
   end

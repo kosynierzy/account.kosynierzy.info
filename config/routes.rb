@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Kosynierzy::Application.routes.draw do
   use_doorkeeper
 
@@ -8,7 +10,7 @@ Kosynierzy::Application.routes.draw do
   end
 
   authenticate :user, lambda { |u| u.admin? } do
-    mount BeanstalkdView::Server, at: '/beanstalkd'
+    mount Sidekiq::Web, at: '/sidekiq'
   end
 
   devise_for :users, skip: :registrations

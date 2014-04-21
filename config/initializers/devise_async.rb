@@ -1,3 +1,3 @@
 Devise::Async.setup do |config|
-  config.backend = :backburner
+  config.backend = :sidekiq
 end

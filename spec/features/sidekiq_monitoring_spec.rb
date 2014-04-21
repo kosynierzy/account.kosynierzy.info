@@ -1,26 +1,26 @@
 require 'spec_helper'
 
-feature 'Beanstalk monitoring' do
+feature 'Sidekiq monitoring' do
   let(:password) { 'password' }
   let(:user) { create(:confirmed_user, password: password) }
   let(:admin) { create(:confirmed_user, admin: true, password: password) }
 
   scenario 'guest enters monitor page' do
-    visit '/beanstalkd'
+    visit '/sidekiq'
 
-    expect(page).to_not have_content 'Beanstalkd View'
+    expect(page).to_not have_content 'Sidekiq v3'
   end
 
   scenario 'regular user enters monitor page' do
     sign_in_with user.email, password
 
-    expect { visit '/beanstalkd' }.to raise_error(ActionController::RoutingError)
+    expect { visit '/sidekiq' }.to raise_error(ActionController::RoutingError)
   end
 
   scenario 'admin enters monitor page' do
     sign_in_with admin.email, password
-    visit '/beanstalkd'
+    visit '/sidekiq'
 
-    expect(page).to have_content 'Beanstalkd View'
+    expect(page).to have_content 'Sidekiq v3'
   end
 end

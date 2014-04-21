@@ -20,9 +20,9 @@ gem 'devise', '~> 3.2.3'
 gem 'doorkeeper', '~> 1.1.0'
 
 # background-processing
-gem 'backburner', '~> 0.4.5'
-gem 'beanstalkd_view', '~> 1.2.6'
-gem 'devise-async', git: 'git://github.com/jandudulski/devise-async.git', branch: 'backburner'
+gem 'sidekiq', '~> 3.0'
+gem 'sinatra', require: false
+gem 'devise-async'
 
 # i18n
 gem 'devise-i18n', '~> 0.10.2'

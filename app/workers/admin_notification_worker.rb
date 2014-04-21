@@ -1,9 +1,9 @@
 class AdminNotificationWorker
-  include Backburner::Queue
+  include Sidekiq::Worker
 
-  queue "notifier"
+  sidekiq_options queue: :notifier
 
-  def self.perform(notification, email)
+  def perform(notification, email)
     AdminNotificationMailer.send(notification, email).deliver
   end
 end

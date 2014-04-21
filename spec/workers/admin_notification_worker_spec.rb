@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AdminNotificationWorker do
-  subject { described_class }
+  subject { described_class.new }
 
   describe ".perform" do
     let(:notification_type) { "notification" }

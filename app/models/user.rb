@@ -19,6 +19,6 @@ class User < ActiveRecord::Base
   protected
 
   def after_confirmation
-    Backburner.enqueue(AdminNotificationWorker, 'user_confirmed', email)
+    AdminNotificationWorker.perform_async('user_confirmed', email)
   end
 end
