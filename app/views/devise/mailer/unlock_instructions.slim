@@ -1,9 +1,10 @@
-p= "Hello #{@resource.email}
+p
+  | Hej #{@resource.username}!
 
 p
-  | Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+  | Twoje konto zostało tymczasowo zablokowane w wyniku wielu nieudanych prób logowania.
 
 p
-  | Click the link below to unlock your account:
+  | Żeby odblokować konto kliknij na poniższy link:
 
-p= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)
+p= link_to 'Odblokuj konto', unlock_url(@resource, unlock_token: @token)
