@@ -18,6 +18,7 @@
 # Ignore application configuration
 /config/database.yml
 /config/application.yml
+/config/puma.rb
 
 # Ignore coverage report
 /coverage/*

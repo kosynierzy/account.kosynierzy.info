@@ -3,6 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'mina/puma'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -26,6 +27,12 @@ set :shared_paths, ['config/database.yml', 'log', 'tmp', 'config/application.yml
 set :user, 'deploy'    # Username in the server to SSH to.
 #   set :port, '30000'     # SSH port number.
 
+# Puma settings
+puma_socket "unix:///#{deploy_to}/#{shared_path}/tmp/sockets/puma.sock"
+puma_pid "#{deploy_to}/#{shared_path}/tmp/pids/puma.pid"
+puma_state "#{deploy_to}/#{shared_path}/tmp/states/puma.state"
+pumactl_socket "unix:///#{deploy_to}/#{shared_path}/tmp/sockets/pumactl.sock"
+
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
@@ -41,23 +48,25 @@ end
 # For Rails apps, we'll make some of the shared paths that are shared between
 # all releases.
 task :setup => :environment do
-  queue! %[mkdir -p "#{deploy_to}/shared/log"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/log"]
 
-  queue! %[mkdir -p "#{deploy_to}/shared/config"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/config"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/config"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/config"]
 
-  queue! %[touch "#{deploy_to}/shared/config/database.yml"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
+  queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
+  queue  %[echo "-----> Be sure to edit '#{shared_path}/config/database.yml'."]
 
-  queue! %[touch "#{deploy_to}/shared/config/application.yml"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/application.yml'."]
+  queue! %[touch "#{deploy_to}/#{shared_path}/config/application.yml"]
+  queue  %[echo "-----> Be sure to edit '#{shared_path}/config/application.yml'."]
 
-  queue! %[touch "#{deploy_to}/shared/config/puma.rb"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/puma.rb'."]
+  queue! %[touch "#{deploy_to}/#{shared_path}/config/puma.rb"]
+  queue  %[echo "-----> Be sure to edit '#{shared_path}/config/puma.rb'."]
 
-  queue! %[mkdir -p "#{deploy_to}/shared/tmp/puma"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/tmp"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp/pids"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp/sockets"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp/states"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/tmp"]
 end
 
 desc "Deploys the current version to the server."
@@ -72,7 +81,8 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue "touch #{deploy_to}/tmp/restart.txt"
+      queue "touch #{deploy_to}/#{shared_path}/tmp/restart.txt"
+      invoke :'puma:phased_restart'
     end
   end
 end
