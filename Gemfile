@@ -17,7 +17,7 @@ gem 'normalize-rails', '~> 3.0'
 
 # authentication
 gem 'devise', '~> 3.2.3'
-gem 'doorkeeper', '~> 1.1.0'
+gem 'doorkeeper', '~> 1.3.0'
 
 # background-processing
 gem 'sidekiq', '~> 3.0'
@@ -38,7 +38,7 @@ gem 'representable', '~> 1.8.0'
 gem 'slim-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta2'
+  gem 'rspec-rails', '~> 3.0.0.rc1'
   gem 'letter_opener'
   gem 'pry-rails', '~> 0.3.2'
 end
