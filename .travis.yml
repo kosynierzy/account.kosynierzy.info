@@ -10,7 +10,7 @@ services:
 script:
   - bundle exec rake spec
 rvm:
-  - "2.1.2"
+  - "2.1.4"
 notifications:
   email:
     - github@kosynierzy.info

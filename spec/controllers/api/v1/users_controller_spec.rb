@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Api::V1::UsersController do
+RSpec.describe Api::V1::UsersController, type: :controller do
   describe 'GET #me' do
     context 'when missing token' do
       it 'responds with 401' do
@@ -12,7 +12,7 @@ describe Api::V1::UsersController do
 
     context 'when valid token' do
       let(:user) { create(:user) }
-      let(:token) { double(accessible?: true, resource_owner_id: user.id) }
+      let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
 
       before do
         allow(controller).to receive(:doorkeeper_token).and_return(token)
