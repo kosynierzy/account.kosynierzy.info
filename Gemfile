@@ -45,7 +45,8 @@ end
 
 group :development do
   gem 'foreman'
-  gem 'mina'
+  gem 'mina', require: false
+  gem 'mina-puma', require: false
 end
 
 group :test do

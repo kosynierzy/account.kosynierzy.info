@@ -1,6 +1,6 @@
 require 'sidekiq/web'
 
-Kosynierzy::Application.routes.draw do
+Rails.application.routes.draw do
   use_doorkeeper
 
   namespace :api do

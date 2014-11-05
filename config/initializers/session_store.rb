@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-Kosynierzy::Application.config.session_store :cookie_store, key: '_kosynierzy_session'
+Rails.application.config.session_store :cookie_store, key: '_kosynierzy_session'
