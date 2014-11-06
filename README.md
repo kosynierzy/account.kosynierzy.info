@@ -5,9 +5,9 @@
 
 # Requirements
 
-* [Postgresql](http://www.postgresql.org/) 9.3.x
-* [Beanstalkd](http://kr.github.io/beanstalkd/) 1.9.x
-* [Ruby](https://www.ruby-lang.org/pl/) 2.1.x
+* [Postgresql](http://www.postgresql.org/) > `9.1`
+* [Redis](http://kr.github.io/beanstalkd/) > `2.4.14`
+* [Ruby](https://www.ruby-lang.org/pl/) `2.1.4`
 
 # Development
 
