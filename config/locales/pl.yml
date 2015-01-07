@@ -11,8 +11,8 @@ pl:
   firstname: 'Imię'
   lastname: 'Nazwisko'
   phone_number: 'Numer telefonu'
-  identity_card_number: 'Numer PESEL'
-  personal_identity_number: 'Numer dowodu osobistego'
+  personal_identity_number: 'Numer PESEL'
+  identity_card_number: 'Numer dowodu osobistego'
   address: 'Adres'
   sign_in: 'Zaloguj'
   sign_up: 'Załóż konto'
@@ -33,3 +33,5 @@ pl:
   page:
     title: 'Stowarzyszenie Kibiców WKS Śląsk Wrocław Kosynierzy'
   cookies_disclaimer: 'Wykorzystujemy ciasteczka (ang. cookies) oraz podobne technologie w celu świadczenia usług dostosowania serwisu do indywidualnych preferencji użytkowników oraz w celach statystycznych. Możesz zawsze wyłączyć ten mechanizm w ustawieniach przeglądarki. Korzystanie z naszego serwisu bez zmiany ustawień przeglądarki oznacza, że cookies będą zapisane w pamięci urządzenia.'
+  flash:
+    access_denied: 'Nie masz uprawnień do tej strony'

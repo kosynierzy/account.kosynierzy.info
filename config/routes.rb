@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    root to: 'users#index'
+  end
+
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web, at: '/sidekiq'
   end

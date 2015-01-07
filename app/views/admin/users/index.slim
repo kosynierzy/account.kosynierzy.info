@@ -1,0 +1,24 @@
+table.users
+  thead
+    tr
+      th
+      th= t('username')
+      th= t('firstname')
+      th= t('lastname')
+      th= t('phone_number')
+      th= t('email')
+      th= t('personal_identity_number')
+      th= t('identity_card_number')
+      th= t('address')
+  tbody
+    - @users.each_with_index do |user, i|
+      tr
+        td= i + 1
+        td= user.username
+        td= user.firstname
+        td= user.lastname
+        td= user.phone_number
+        td= mail_to user.email
+        td= user.personal_identity_number
+        td= user.identity_card_number
+        td= user.address
