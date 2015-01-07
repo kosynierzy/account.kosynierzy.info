@@ -7,6 +7,13 @@ pl:
   password_help:
     leave_empty: 'Zostaw puste jeśli nie chcesz zmienić'
     current: 'Podaj hasło, żeby potwierdzić zmiany'
+  private_data_help: 'Wymagane przy wyjazdach'
+  firstname: 'Imię'
+  lastname: 'Nazwisko'
+  phone_number: 'Numer telefonu'
+  identity_card_number: 'Numer PESEL'
+  personal_identity_number: 'Numer dowodu osobistego'
+  address: 'Adres'
   sign_in: 'Zaloguj'
   sign_up: 'Załóż konto'
   sign_out: 'Wyloguj'

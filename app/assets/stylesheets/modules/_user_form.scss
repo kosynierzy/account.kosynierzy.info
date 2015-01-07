@@ -21,14 +21,6 @@
       border: 1px solid $color-forestgreen;
     }
   }
-}
-
-.user-form__email {
-  @extend .user-form__element;
-}
-
-.user-form__password {
-  @extend .user-form__element;
 
   .help {
     display: block;
@@ -37,6 +29,14 @@
     font-style: italic;
     color: $color-grey;
   }
+}
+
+.user-form__email {
+  @extend .user-form__element;
+}
+
+.user-form__password {
+  @extend .user-form__element;
 }
 
 .user-form__username {

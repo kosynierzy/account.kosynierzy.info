@@ -16,6 +16,27 @@
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       div= t('waiting_for_confirmation', email: resource.unconfirmed_email)
 
+    .user-form__element
+      = f.text_field :firstname, placeholder: t('firstname')
+
+    .user-form__element
+      = f.text_field :lastname, placeholder: t('lastname')
+
+    .user-form__element
+      = f.text_field :phone_number, placeholder: t('phone_number')
+
+    .user-form__element
+      = f.text_field :identity_card_number, placeholder: t('identity_card_number')
+      span.help= t('private_data_help')
+
+    .user-form__element
+      = f.text_field :personal_identity_number, placeholder: t('personal_identity_number')
+      span.help= t('private_data_help')
+
+    .user-form__element
+      = f.text_area :address, placeholder: t('address')
+      span.help= t('private_data_help')
+
     .user-form__password
       = f.password_field :password, autocomplete: "off", placeholder: t('password_new')
       span.help= t('password_help.leave_empty')
