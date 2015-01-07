@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Sidekiq monitoring' do
   let(:password) { 'password' }
   let(:user) { create(:confirmed_user, password: password) }
-  let(:admin) { create(:confirmed_user, admin: true, password: password) }
+  let(:admin) { create(:confirmed_user, roles: ['admin'], password: password) }
 
   scenario 'guest enters monitor page' do
     visit '/sidekiq'

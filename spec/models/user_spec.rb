@@ -20,7 +20,7 @@ describe User do
 
     context "for admin user" do
       it "returns true" do
-        user = create(:user, admin: true)
+        user = create(:user, roles: ['admin'])
         expect(user.admin?).to be(true)
       end
     end

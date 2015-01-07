@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 
   has_gravatar
 
+  def admin?
+    roles.include?('admin')
+  end
+
   protected
 
   def after_confirmation
