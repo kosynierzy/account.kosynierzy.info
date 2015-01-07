@@ -6,4 +6,5 @@ class ProfileRepresentation < Representable::Decorator
   property :id
   property :email
   property :username
+  property :roles
 end

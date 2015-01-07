@@ -11,8 +11,9 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     end
 
     context 'when valid token' do
-      let(:user) { create(:user) }
+      let(:user) { create(:user, roles: roles) }
       let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
+      let(:roles) { %w{ something role } }
 
       before do
         allow(controller).to receive(:doorkeeper_token).and_return(token)
@@ -32,7 +33,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         end
 
         it 'contains limited set of keys' do
-          expect(parsed_body.keys).to match_array(%w{id email username})
+          expect(parsed_body.keys).to match_array(%w{id email username roles})
         end
 
         it 'contains user email' do
@@ -45,6 +46,10 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
         it 'contains user username' do
           expect(parsed_body['username']).to eq(user.username)
+        end
+
+        it 'contains user roles' do
+          expect(parsed_body['roles']).to match_array(roles)
         end
       end
     end
