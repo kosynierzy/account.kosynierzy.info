@@ -3,6 +3,7 @@ table.users
     tr
       th
       th= t('username')
+      th= t('roles')
       th= t('firstname')
       th= t('lastname')
       th= t('phone_number')
@@ -15,6 +16,7 @@ table.users
       tr
         td= i + 1
         td= user.username
+        td= user.roles.join(', ')
         td= user.firstname
         td= user.lastname
         td= user.phone_number

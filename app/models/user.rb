@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     roles.include?('admin')
   end
 
+  def kosynierzy?
+    roles.include?('kosynierzy')
+  end
+
   protected
 
   def after_confirmation

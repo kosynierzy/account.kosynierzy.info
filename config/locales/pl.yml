@@ -18,6 +18,7 @@ pl:
   sign_up: 'Załóż konto'
   sign_out: 'Wyloguj'
   update: 'Zapisz'
+  roles: 'Role'
   forgot_password: 'Nie pamiętam hasła'
   missing_confirmation: 'Wyślij ponownie potwierdzenie założenia konta'
   missing_unlock: 'Odblokuj konto'
