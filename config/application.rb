@@ -26,6 +26,7 @@ module Kosynierzy
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :pl
 
+    config.filter_parameters << :code
     config.filter_parameters << :client_secret
     config.filter_parameters << :refresh_token
 
