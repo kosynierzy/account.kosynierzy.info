@@ -66,23 +66,57 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
     context 'when valid token' do
       let(:user) { create(:user, roles: roles) }
-      let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
       let(:roles) { %w{ something role } }
 
       before do
         allow(controller).to receive(:doorkeeper_token).and_return(token)
       end
 
-      context 'when user has not kosynierzy role' do
-        it 'responds with 403' do
+      context 'when request comes from application' do
+        let(:token) { double(acceptable?: true, resource_owner_id: nil) }
+
+        it 'responds with 200' do
           get :index, format: :json
 
-          expect(response.status).to eq(403)
+          expect(response.status).to eq(200)
+        end
+
+        describe 'json body' do
+          let(:parsed_body) { JSON.parse(response.body) }
+          let(:expected_keys) do
+            %w{id username email firstname lastname personal_identity_number identity_card_number phone_number roles address}
+          end
+
+          it 'looks like an array' do
+            get :index, format: :json
+
+            expect(parsed_body).to be_a(Array)
+          end
+
+          it 'contains all users' do
+            create(:user)
+            create(:user)
+
+            get :index, format: :json
+
+            expect(parsed_body.size).to eq(2)
+          end
+
+          it 'contains limited set of keys' do
+            create(:user)
+
+            get :index, format: :json
+
+            expect(parsed_body.first.keys).to match_array(expected_keys)
+          end
         end
       end
 
-      context 'when user has kosynierzy role' do
-        let(:roles) { %w{ kosynierzy role } }
+      context 'when request comes from user' do
+        let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
+        let(:expected_keys) do
+          %w{id username}
+        end
 
         it 'responds with 200' do
           get :index, format: :json
@@ -93,24 +127,27 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         describe 'json body' do
           let(:parsed_body) { JSON.parse(response.body) }
 
-
           it 'looks like an array' do
             get :index, format: :json
 
             expect(parsed_body).to be_a(Array)
           end
 
-          it 'contains all users' do
+          it 'contains all users except himself' do
             create(:user)
+
             get :index, format: :json
 
-            expect(parsed_body.size).to eq(2)
+            expect(parsed_body.size).to eq(1)
+            expect(parsed_body.first['id']).not_to eq(user.id)
           end
 
           it 'contains limited set of keys' do
+            create(:user)
+
             get :index, format: :json
 
-            expect(parsed_body.first.keys).to match_array(%w{id username})
+            expect(parsed_body.first.keys).to match_array(expected_keys)
           end
         end
       end
