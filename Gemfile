@@ -32,6 +32,9 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'puma'
 gem 'sentry-raven'
 
+# utils
+gem 'anima'
+
 # views
 gem 'gravtastic'
 gem 'representable', '~> 2.1.3'
