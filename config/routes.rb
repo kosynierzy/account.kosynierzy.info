@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web, at: '/sidekiq'
   end
 
-  devise_for :users, skip: :registrations
+  devise_for :users, skip: :registrations, controllers: { sessions: 'sessions' }
 
   devise_scope :user do
     resource :registration,
