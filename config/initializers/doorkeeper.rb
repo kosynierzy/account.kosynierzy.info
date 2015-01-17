@@ -54,12 +54,36 @@ Doorkeeper.configure do
   # Check out the wiki for more information on customization
   # access_token_methods :from_bearer_authorization, :from_access_token_param, :from_bearer_param
 
-  # Change the test redirect uri for client apps
+  # Change the native redirect uri for client apps
   # When clients register with the following redirect uri, they won't be redirected to any server and the authorization code will be displayed within the provider
   # The value can be any string. Use nil to disable this feature. When disabled, clients must provide a valid URL
   # (Similar behaviour: https://developers.google.com/accounts/docs/OAuth2InstalledApp#choosingredirecturi)
   #
-  # test_redirect_uri 'urn:ietf:wg:oauth:2.0:oob'
+  # native_redirect_uri 'urn:ietf:wg:oauth:2.0:oob'
+
+  # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
+  # by default in non-development environments). OAuth2 delegates security in
+  # communication to the HTTPS protocol so it is wise to keep this enabled.
+  #
+  # force_ssl_in_redirect_uri !Rails.env.development?
+
+  # Specify what grant flows are enabled in array of Strings. The valid
+  # strings and the flows they enable are:
+  #
+  # "authorization_code" => Authorization Code Grant Flow
+  # "implicit" => Implicit Grant Flow
+  # "password" => Resource Owner Password Credentials Grant Flow
+  # "client_credentials" => Client Credentials Grant Flow
+  #
+  # If not specified, Doorkeeper enables authorization_code and
+  # client_credentials.
+  #
+  # implicit and password grant flows have risks that you should understand
+  # before enabling:
+  # http://tools.ietf.org/html/rfc6819#section-4.4.2
+  # http://tools.ietf.org/html/rfc6819#section-4.4.3
+  #
+  # grant_flows %w(authorization_code client_credentials)
 
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.
@@ -70,4 +94,9 @@ Doorkeeper.configure do
 
   # WWW-Authenticate Realm (default "Doorkeeper").
   # realm "Doorkeeper"
+
+  # Allow dynamic query parameters (disabled by default)
+  # Some applications require dynamic query parameters on their request_uri
+  # set to true if you want this to be allowed
+  # wildcard_redirect_uri false
 end
