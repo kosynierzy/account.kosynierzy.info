@@ -14,7 +14,7 @@ Warden::Manager.after_fetch do |user, auth, opts|
   else
     auth.logout
 
-    throw :warden, message: :unauthenticated
+    throw :warden, message: :timeout
   end
 end
 
