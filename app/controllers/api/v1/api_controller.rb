@@ -1,8 +1,29 @@
 module Api
   module V1
-    class ApiController < ::ApplicationController
+    class ApiController < ::ActionController::Base
+      def authorize!
+        doorkeeper_authorize!
+        session_authorize!
+      end
+
+      def session_authorize!
+        if current_session.try(:alive?)
+          current_session.save!
+        else
+          current_session.try(:destroy)
+
+          head 401
+        end
+      end
+
+      def current_session
+        return unless doorkeeper_token
+
+        @current_session ||= Session.find_by(id: current_resource_owner_id)
+      end
+
       def current_resource_owner
-        User.find(doorkeeper_token.resource_owner_id)
+        User.find(current_session.user_id)
       end
 
       def current_application

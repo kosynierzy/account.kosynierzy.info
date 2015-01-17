@@ -1,12 +1,20 @@
 module Api
   module V1
     class UsersController < ApiController
-      before_action :doorkeeper_authorize!
+      before_action :authorize!
 
       respond_to :json
 
       def me
         render json: profile_representation
+      end
+
+      def sign_out
+        current_session.try(:destroy)
+
+        doorkeeper_token.destroy!
+
+        head :ok
       end
 
       def index
