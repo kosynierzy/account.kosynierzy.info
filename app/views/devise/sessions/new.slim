@@ -6,10 +6,6 @@
     .user-form__password
       = f.password_field :password, placeholder: t('password')
 
-    .user-form__remember_me
-      = f.check_box :remember_me
-      = f.label :remember_me
-
     .user-form__buttons
       = f.submit t('sign_in')
 

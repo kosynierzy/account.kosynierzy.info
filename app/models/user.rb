@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
          :lockable,
          :recoverable,
          :registerable,
-         :rememberable,
-         :timeoutable,
          :trackable,
          :validatable
 
