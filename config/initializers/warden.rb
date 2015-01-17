@@ -10,7 +10,7 @@ Warden::Manager.after_fetch do |user, auth, opts|
   session = Session.find_by(id: auth.raw_session['sso_id'])
 
   if session.try(:alive?)
-    session.save!
+    session.refresh!
   else
     auth.logout
 

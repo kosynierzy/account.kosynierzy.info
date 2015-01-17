@@ -8,7 +8,7 @@ module Api
 
       def session_authorize!
         if current_session.try(:alive?)
-          current_session.save!
+          current_session.refresh!
         else
           current_session.try(:destroy)
 

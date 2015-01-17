@@ -15,6 +15,10 @@ class Session < ActiveRecord::Base
     expires_at < Time.current
   end
 
+  def refresh!
+    save!
+  end
+
   private
 
   def update_expires_at
