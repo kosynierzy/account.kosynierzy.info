@@ -6,6 +6,7 @@ class Session < ActiveRecord::Base
   belongs_to :user
 
   before_save :update_expires_at
+  before_destroy :clean_access_tokens
 
   def alive?
     !expired?
@@ -23,5 +24,9 @@ class Session < ActiveRecord::Base
 
   def update_expires_at
     self.expires_at = Time.current + EXPIRE_TIME
+  end
+
+  def clean_access_tokens
+    Doorkeeper::AccessToken.where(resource_owner_id: id).destroy_all
   end
 end
