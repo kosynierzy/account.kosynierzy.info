@@ -15,14 +15,16 @@ module Api
 
         doorkeeper_token.destroy!
 
-        head :ok
+        head :no_content
       end
 
       def index
-        use_case = ListUsers.new(user: current_user)
-        render json: use_case.call
-      rescue ActiveRecord::RecordNotFound
-        use_case = ListUsers.new(user: nil)
+        use_case = begin
+                     ListUsers.new(user: current_user)
+                   rescue ActiveRecord::RecordNotFound
+                     ListUsers.new(user: nil)
+                   end
+
         render json: use_case.call
       end
 

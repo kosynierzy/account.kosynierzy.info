@@ -158,4 +158,42 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #me' do
+    context 'when missing token' do
+      it 'responds with 401' do
+        delete :me, format: :json
+
+        expect(response.status).to eq(401)
+      end
+    end
+
+    context 'when valid token' do
+      let(:user) { create(:user) }
+      let(:session) { Session.create(user: user) }
+      let(:token) { double(acceptable?: true, resource_owner_id: session.id, destroy!: true) }
+
+      before do
+        allow(controller).to receive(:doorkeeper_token).and_return(token)
+      end
+
+      it 'responds with No Content' do
+        delete :sign_out, format: :json
+
+        expect(response.status).to eq(204)
+      end
+
+      it 'destroys user session' do
+        delete :sign_out, format: :json
+
+        expect(Session.find_by(id: session.id)).to be_nil
+      end
+
+      it 'destroys user access token' do
+        expect(token).to receive(:destroy!)
+
+        delete :sign_out, format: :json
+      end
+    end
+  end
 end
