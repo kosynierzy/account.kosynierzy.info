@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe '/api/v1/me path' do
+describe 'GET /api/v1/me path' do
   it 'routes to api users controller' do
     expect({ get: '/api/v1/me.json' }).to route_to(
       controller: 'api/v1/users',
@@ -10,7 +10,17 @@ describe '/api/v1/me path' do
   end
 end
 
-describe '/api/v1/users path' do
+describe 'DELETE /api/v1/me path' do
+  it 'routes to api users controller' do
+    expect({ delete: '/api/v1/me.json' }).to route_to(
+      controller: 'api/v1/users',
+      action: 'sign_out',
+      format: 'json'
+    )
+  end
+end
+
+describe 'GET /api/v1/users path' do
   it 'routes to api users controller' do
     expect({ get: '/api/v1/users.json' }).to route_to(
       controller: 'api/v1/users',

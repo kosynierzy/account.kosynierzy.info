@@ -22,8 +22,8 @@ module Api
         @current_session ||= Session.find_by(id: current_resource_owner_id)
       end
 
-      def current_resource_owner
-        User.find(current_session.user_id)
+      def current_user
+        User.find(current_session.try(:user_id))
       end
 
       def current_application

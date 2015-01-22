@@ -12,7 +12,8 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
     context 'when valid token' do
       let(:user) { create(:user, roles: roles) }
-      let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
+      let(:session) { Session.create(user: user) }
+      let(:token) { double(acceptable?: true, resource_owner_id: session.id) }
       let(:roles) { %w{ something role } }
       let(:expected_keys) do
         %w{id username email firstname lastname personal_identity_number identity_card_number phone_number roles address}
@@ -116,7 +117,8 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       end
 
       context 'when request comes from user' do
-        let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
+        let(:session) { Session.create(user: user) }
+        let(:token) { double(acceptable?: true, resource_owner_id: session.id) }
         let(:expected_keys) do
           %w{id username}
         end

@@ -1,5 +1,5 @@
 class ListUsers
-  include Anima.new(:user_id)
+  include Anima.new(:user)
 
   def call
     representer.for_collection.represent(users)
@@ -8,7 +8,7 @@ class ListUsers
   private
 
   def representer
-    if user_id
+    if user
       BareUserRepresentation
     else
       UserRepresentation
@@ -16,8 +16,8 @@ class ListUsers
   end
 
   def users
-    if user_id
-      User.select(:id, :username).where.not(id: user_id).order(:username)
+    if user
+      User.select(:id, :username).where.not(id: user.id).order(:username)
     else
       User.order(:username)
     end
