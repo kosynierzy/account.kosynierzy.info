@@ -1,8 +1,7 @@
 module Api
   module V1
     class UsersController < ApiController
-      before_action :authorize!, except: [:index]
-      before_action :doorkeeper_authorize!, only: [:index]
+      before_action :session_authorize!, except: [:index]
 
       respond_to :json
 

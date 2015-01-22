@@ -1,10 +1,7 @@
 module Api
   module V1
     class ApiController < ::ActionController::Base
-      def authorize!
-        doorkeeper_authorize!
-        session_authorize!
-      end
+      before_action :doorkeeper_authorize!
 
       def session_authorize!
         if current_session.try(:alive?)
