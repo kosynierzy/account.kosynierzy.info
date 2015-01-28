@@ -6,7 +6,9 @@ module Api
       respond_to :json
 
       def me
-        render json: profile_representation
+        if stale?(etag: current_user, last_modified: current_user.updated_at)
+          render json: profile_representation
+        end
       end
 
       def sign_out
