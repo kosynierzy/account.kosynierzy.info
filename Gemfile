@@ -49,7 +49,6 @@ end
 
 group :development do
   gem 'mina', require: false
-  gem 'mina-puma', require: false
 end
 
 group :test do
