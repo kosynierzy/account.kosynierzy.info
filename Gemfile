@@ -29,7 +29,8 @@ gem 'devise-i18n', '~> 0.11.2'
 gem 'rails-i18n', '~> 4.0.0'
 
 # server
-gem 'puma'
+gem 'foreman'
+gem 'passenger', '~> 5.0.0.beta3'
 gem 'sentry-raven'
 
 # utils
@@ -47,7 +48,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'foreman'
   gem 'mina', require: false
   gem 'mina-puma', require: false
 end
