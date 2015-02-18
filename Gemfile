@@ -4,7 +4,7 @@ ruby '2.1.5'
 
 # core
 gem 'rails', '~> 4.1.8'
-gem 'figaro', '~> 1.0.0'
+gem 'envied', '~> 0.8.1'
 gem 'pg'
 gem 'coveralls', require: false
 
