@@ -42,7 +42,7 @@ gem 'representable', '~> 2.1.3'
 gem 'slim-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails', '~> 3.2.0'
   gem 'letter_opener'
   gem 'pry-rails', '~> 0.3.2'
 end
