@@ -3,7 +3,6 @@ bundler_args: --without development
 before_script:
   - psql -c 'create database kosynierzy_test;' -U postgres
   - cp config/database.example.yml config/database.yml
-  - cp config/application.example.yml config/application.yml
   - ./bin/rake db:schema:load
 services:
   - redis-server
