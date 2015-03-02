@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.0'
 
 # core
-gem 'rails', '~> 4.1.8'
+gem 'rails', '~> 4.2.0'
 gem 'envied', '~> 0.8.1'
 gem 'pg'
 gem 'coveralls', require: false
@@ -17,7 +17,7 @@ gem 'normalize-rails', '~> 3.0'
 
 # authentication
 gem 'devise', '~> 3.4.1'
-gem 'doorkeeper', '~> 2.1.0'
+gem 'doorkeeper', '~> 2.1.3'
 
 # background-processing
 gem 'sidekiq', '~> 3.0'
@@ -30,7 +30,6 @@ gem 'rails-i18n', '~> 4.0.0'
 
 # server
 gem 'foreman'
-gem 'passenger', '~> 5.0.0.beta3'
 gem 'sentry-raven'
 
 # utils
@@ -49,9 +48,14 @@ end
 
 group :development do
   gem 'mina', require: false
+  gem 'puma'
 end
 
 group :test do
   gem 'capybara', '~> 2.4.4'
   gem 'factory_girl_rails', '~> 4.5.0'
+end
+
+group :production do
+  gem 'passenger', '~> 5.0.0.rc2'
 end

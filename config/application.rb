@@ -5,8 +5,9 @@ require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'action_mailer/railtie'
-require 'sprockets/railtie'
+# require 'active_job/railtie'
 # require 'rails/test_unit/railtie'
+require 'sprockets/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -27,9 +28,8 @@ module Kosynierzy
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :pl
 
-    config.filter_parameters << :code
-    config.filter_parameters << :client_secret
-    config.filter_parameters << :refresh_token
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
 
     config.generators do |g|
       g.test_framework :rspec,
