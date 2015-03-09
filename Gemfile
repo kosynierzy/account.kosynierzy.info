@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.2.1'
 
 # core
 gem 'rails', '~> 4.2.0'
@@ -10,9 +10,9 @@ gem 'coveralls', require: false
 
 # assets
 gem 'coffee-rails', '~> 4.1.0'
-gem 'sass-rails', '~> 4.0.4'
+gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '>= 1.3.0'
-gem 'neat', '~> 1.5.0'
+gem 'neat', '~> 1.7.1'
 gem 'normalize-rails', '~> 3.0'
 
 # authentication
@@ -25,8 +25,8 @@ gem 'sinatra', require: false
 gem 'devise-async'
 
 # i18n
-gem 'devise-i18n', '~> 0.11.2'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'devise-i18n', '~> 0.11.4'
+gem 'rails-i18n', '~> 4.0.3'
 
 # server
 gem 'foreman'
@@ -37,18 +37,18 @@ gem 'anima'
 
 # views
 gem 'gravtastic'
-gem 'representable', '~> 2.1.3'
+gem 'representable', '~> 2.1.5'
 gem 'slim-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.2.0'
+  gem 'rspec-rails', '~> 3.2.1'
   gem 'letter_opener'
-  gem 'pry-rails', '~> 0.3.2'
+  gem 'pry-rails', '~> 0.3.3'
 end
 
 group :development do
   gem 'mina', require: false
-  gem 'puma'
+  gem 'puma', '~> 2.11.1'
 end
 
 group :test do
@@ -57,5 +57,5 @@ group :test do
 end
 
 group :production do
-  gem 'passenger', '~> 5.0.0.rc2'
+  gem 'passenger', '~> 5.0.1'
 end
