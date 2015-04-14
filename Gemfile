@@ -25,7 +25,7 @@ gem 'sinatra', require: false
 gem 'devise-async'
 
 # i18n
-gem 'devise-i18n', '~> 0.11.4'
+gem 'devise-i18n', '~> 0.12.0'
 gem 'rails-i18n', '~> 4.0.3'
 
 # server

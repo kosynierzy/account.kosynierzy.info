@@ -22,7 +22,7 @@ feature 'Visitor signs up' do
   scenario 'with passwords mismatch' do
     sign_up_with 'username', 'valid@example.com', 'password', 'password_confirmation'
 
-    expect(page).to have_text 'Password confirmation nie zgadza się z potwierdzeniem'
+    expect(page).to have_text 'Password confirmation nie zgadza się z polem Password'
   end
 
   scenario 'with existing email' do
