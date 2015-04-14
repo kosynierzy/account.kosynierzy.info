@@ -10,6 +10,8 @@ script:
   - bundle exec rake spec
 rvm:
   - "2.2.2"
+env:
+  - HOST: account.kosynierzy.dev
 notifications:
   email:
     - github@kosynierzy.info
