@@ -17,7 +17,7 @@ gem 'normalize-rails', '~> 3.0'
 
 # authentication
 gem 'devise', '~> 3.4.1'
-gem 'doorkeeper', '~> 2.1.3'
+gem 'doorkeeper', '~> 2.2.0'
 
 # background-processing
 gem 'sidekiq', '~> 3.0'
