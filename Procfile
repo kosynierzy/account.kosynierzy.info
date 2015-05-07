@@ -1,1 +1,2 @@
-web: ./bin/passenger start --environment $RACK_ENV --max-pool-size $MAX_POOL_SIZE --min-instances $MAX_POOL_SIZE --socket ./tmp/run.sock
+web: ./bin/passenger start --socket ./tmp/sockets/passenger.sock
+worker: ./bin/sidekiq -C config/sidekiq.yml --daemon --logfile ./log/sidekiq.log --pidfile ./tmp/pids/sidekiq.pid
