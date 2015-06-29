@@ -1,11 +1,18 @@
 enable_defaults!
 
+variable :RACK_ENV, :string, default: 'development'
+
 variable :SECRET_KEY_BASE, :string, default: "76f43e5d57f8e7e28a2e27cf3a6bbf069cde517d4d8c22525274c9246c66e40128037285d14541d7e2197528db81a8b1ab06046eaa0cbf44b85de025f1772edb"
 variable :DEVISE_SECRET_KEY, :string, default: "10d52094aba227a08fad0902498901dc760d5a21652aa574ace3496937e6518a07ee6c72b6c7eb1c6f61209a235b31c835a992af66c969136d4b40263d16db6b"
 variable :HOST
 variable :ADMIN_EMAIL, :string, default: "admin@example.com"
 variable :SMTP_FROM, :string, default: "from@example.com"
 variable :RAVEN_URL, :string, default: ""
+
+group :puma do
+  variable :PUMA_WORKERS, :integer, default: 2
+  variable :PUMA_MAX_THREADS, :integer, default: 6
+end
 
 group :production do
   variable :SECRET_KEY_BASE

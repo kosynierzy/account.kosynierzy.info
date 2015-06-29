@@ -6,7 +6,7 @@ describe User do
 
     it "enqueues admin notification" do
       expect(AdminNotificationWorker).to receive(:perform_async).with('user_confirmed', subject.email)
-      subject.confirm!
+      subject.confirm
     end
   end
 

@@ -8,7 +8,7 @@ describe AdminNotificationWorker do
     let(:email) { "example@example.com" }
 
     it "delegates email to mailer" do
-      expect(AdminNotificationMailer).to receive(notification_type).with(email).and_return(double(deliver: nil))
+      expect(AdminNotificationMailer).to receive(notification_type).with(email).and_return(double(deliver_now: nil))
       subject.perform(notification_type, email)
     end
 

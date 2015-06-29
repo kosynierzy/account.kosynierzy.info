@@ -16,7 +16,7 @@ gem 'neat', '~> 1.7.1'
 gem 'normalize-rails', '~> 3.0'
 
 # authentication
-gem 'devise', '~> 3.4.1'
+gem 'devise', '~> 3.5.1'
 gem 'doorkeeper', '~> 2.2.0'
 
 # background-processing
@@ -37,11 +37,11 @@ gem 'anima'
 
 # views
 gem 'gravtastic'
-gem 'representable', '~> 2.1.5'
+gem 'representable', '~> 2.2.3'
 gem 'slim-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.2.1'
+  gem 'rspec-rails', '~> 3.3.1'
   gem 'letter_opener'
   gem 'pry-rails', '~> 0.3.3'
 end

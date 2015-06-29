@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150117132410) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "oauth_access_grants", force: true do |t|
+  create_table "oauth_access_grants", force: :cascade do |t|
     t.string   "resource_owner_id", null: false
     t.integer  "application_id",    null: false
     t.string   "token",             null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150117132410) do
 
   add_index "oauth_access_grants", ["token"], name: "index_oauth_access_grants_on_token", unique: true, using: :btree
 
-  create_table "oauth_access_tokens", force: true do |t|
+  create_table "oauth_access_tokens", force: :cascade do |t|
     t.string   "resource_owner_id"
     t.integer  "application_id"
     t.string   "token",             null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150117132410) do
   add_index "oauth_access_tokens", ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id", using: :btree
   add_index "oauth_access_tokens", ["token"], name: "index_oauth_access_tokens_on_token", unique: true, using: :btree
 
-  create_table "oauth_applications", force: true do |t|
+  create_table "oauth_applications", force: :cascade do |t|
     t.string   "name",                      null: false
     t.string   "uid",                       null: false
     t.string   "secret",                    null: false
@@ -57,14 +57,16 @@ ActiveRecord::Schema.define(version: 20150117132410) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
 
-  create_table "sessions", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "sessions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "user_id"
     t.datetime "expires_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
+
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "email",                    default: "", null: false
     t.string   "encrypted_password",       default: "", null: false
     t.string   "reset_password_token"
