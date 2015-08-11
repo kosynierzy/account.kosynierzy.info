@@ -48,7 +48,7 @@ end
 
 group :development do
   gem 'mina', require: false
-  gem 'puma', '~> 2.11.1'
+  gem 'puma', '~> 2.12.2'
 end
 
 group :test do
