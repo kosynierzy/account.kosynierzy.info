@@ -9,7 +9,7 @@ services:
 script:
   - bundle exec rake spec
 rvm:
-  - "2.1.5"
+  - "2.0.0"
 env:
   - HOST: account.kosynierzy.dev
 notifications:
