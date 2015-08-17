@@ -1,4 +1,6 @@
 language: ruby
+sudo: false
+cache: bundler
 bundler_args: --without development
 before_script:
   - psql -c 'create database kosynierzy_test;' -U postgres
