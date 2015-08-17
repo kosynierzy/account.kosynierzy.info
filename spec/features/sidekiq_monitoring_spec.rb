@@ -6,7 +6,6 @@ feature 'Sidekiq monitoring' do
   let(:admin) { create(:confirmed_user, roles: ['admin'], password: password) }
 
   scenario 'guest enters monitor page' do
-    pending 'Requires fix in devise: https://github.com/plataformatec/devise/issues/3643'
     visit '/sidekiq'
 
     expect(page).to_not have_content 'Sidekiq v3'

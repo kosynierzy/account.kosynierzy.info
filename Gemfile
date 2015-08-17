@@ -37,6 +37,7 @@ gem 'anima'
 
 # views
 gem 'gravtastic'
+gem 'multi_json'
 gem 'representable', '~> 2.3.0'
 gem 'slim-rails'
 
