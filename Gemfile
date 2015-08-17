@@ -17,7 +17,7 @@ gem 'normalize-rails', '~> 3.0'
 
 # authentication
 gem 'devise', '~> 3.5.1'
-gem 'doorkeeper', '~> 2.2.0'
+gem 'doorkeeper', '~> 3.0.0'
 
 # background-processing
 gem 'sidekiq', '~> 3.0'
@@ -37,7 +37,7 @@ gem 'anima'
 
 # views
 gem 'gravtastic'
-gem 'representable', '~> 2.2.3'
+gem 'representable', '~> 2.3.0'
 gem 'slim-rails'
 
 group :development, :test do
