@@ -49,11 +49,11 @@ end
 
 group :development do
   gem 'mina', require: false
-  gem 'puma', '~> 2.12.2'
+  gem 'puma', '~> 2.13.4'
 end
 
 group :test do
-  gem 'capybara', '~> 2.4.4'
+  gem 'capybara', '~> 2.5.0'
   gem 'factory_girl_rails', '~> 4.5.0'
 end
 
