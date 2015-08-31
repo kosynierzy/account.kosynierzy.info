@@ -1,62 +1,62 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-ruby '2.0.0'
+ruby "2.0.0"
 
 # core
-gem 'rails', '~> 4.2.0'
-gem 'envied', '~> 0.8.1'
-gem 'pg'
-gem 'coveralls', require: false
+gem "rails", "~> 4.2.0"
+gem "envied", "~> 0.8.1"
+gem "pg", "~> 0.18.2"
+gem "coveralls", "~> 0.8.2", require: false
 
 # assets
-gem 'coffee-rails', '~> 4.1.0'
-gem 'sass-rails', '~> 5.0.1'
-gem 'uglifier', '>= 1.3.0'
-gem 'neat', '~> 1.7.1'
-gem 'normalize-rails', '~> 3.0'
+gem "coffee-rails", "~> 4.1.0"
+gem "sass-rails", "~> 5.0.3"
+gem "uglifier", "~> 2.7.2"
+gem "neat", "~> 1.7.2"
+gem "normalize-rails", "~> 3.0.3"
 
 # authentication
-gem 'devise', '~> 3.5.1'
-gem 'doorkeeper', '~> 3.0.0'
+gem "devise", "~> 3.5.2"
+gem "doorkeeper", "~> 3.0.0"
 
 # background-processing
-gem 'sidekiq', '~> 3.0'
-gem 'sinatra', require: false
-gem 'devise-async'
+gem "sidekiq", "~> 3.4.2"
+gem "sinatra", "~> 1.4.6", require: false
+gem "devise-async", "~> 0.10.1"
 
 # i18n
-gem 'devise-i18n', '~> 0.12.0'
-gem 'rails-i18n', '~> 4.0.3'
+gem "devise-i18n", "~> 0.12.1"
+gem "rails-i18n", "~> 4.0.4"
 
 # server
-gem 'foreman'
-gem 'sentry-raven'
+gem "foreman", "~> 0.78.0"
+gem "sentry-raven", "~> 0.14.0"
 
 # utils
-gem 'anima'
+gem "anima", "~> 0.2.0"
 
 # views
-gem 'gravtastic'
-gem 'multi_json'
-gem 'representable', '~> 2.3.0'
-gem 'slim-rails'
+gem "gravtastic", "~> 3.2.6"
+gem "multi_json", "~> 1.11.2"
+gem "representable", "~> 2.3.0"
+gem "slim-rails", "~> 3.0.1"
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.3.1'
-  gem 'letter_opener'
-  gem 'pry-rails', '~> 0.3.3'
+  gem "rspec-rails", "~> 3.3.3"
+  gem "letter_opener", "~> 1.4.1"
+  gem "pry-rails", "~> 0.3.4"
 end
 
 group :development do
-  gem 'mina', require: false
-  gem 'puma', '~> 2.13.4'
+  gem "mina", "~> 0.3.7", require: false
+  gem "puma", "~> 2.13.4"
 end
 
 group :test do
-  gem 'capybara', '~> 2.5.0'
-  gem 'factory_girl_rails', '~> 4.5.0'
+  gem "capybara", "~> 2.5.0"
+  gem "factory_girl_rails", "~> 4.5.0"
 end
 
 group :production do
-  gem 'passenger', '~> 5.0.1'
+  gem "passenger", "~> 5.0.16"
 end
