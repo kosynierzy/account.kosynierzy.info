@@ -20,7 +20,7 @@ gem "devise", "~> 3.5.2"
 gem "doorkeeper", "~> 3.0.0"
 
 # background-processing
-gem "sidekiq", "~> 3.4.2"
+gem "sidekiq", "~> 3.5.0"
 gem "sinatra", "~> 1.4.6", require: false
 gem "devise-async", "~> 0.10.1"
 
