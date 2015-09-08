@@ -42,6 +42,7 @@ gem "representable", "~> 2.3.0"
 gem "slim-rails", "~> 3.0.1"
 
 group :development, :test do
+  gem "brakeman", "~> 3.1.0"
   gem "rspec-rails", "~> 3.3.3"
   gem "letter_opener", "~> 1.4.1"
   gem "pry-rails", "~> 0.3.4"

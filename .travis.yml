@@ -9,6 +9,7 @@ before_script:
 services:
   - redis-server
 script:
+  - bundle exec brakeman -z
   - bundle exec rake spec
 rvm:
   - "2.0.0"
