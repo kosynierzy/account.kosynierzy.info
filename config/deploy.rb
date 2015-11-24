@@ -1,7 +1,7 @@
-require 'mina/bundler'
-require 'mina/rails'
-require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
+require "mina/bundler"
+require "mina/rails"
+require "mina/git"
+# require "mina/rbenv"  # for rbenv support. (http://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 # Basic settings:
@@ -10,20 +10,20 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'cwaniak.eu'
-set :deploy_to, '/var/www/account.kosynierzy.info'
-set :repository, 'git://github.com/kosynierzy/account.kosynierzy.info.git'
-set :branch, 'master'
-set :bundle_bin, './bin/bundle'
+set :domain, "baratheon"
+set :deploy_to, "/home/account/apps/account"
+set :repository, "git://github.com/kosynierzy/account.kosynierzy.info.git"
+set :branch, "master"
+set :bundle_bin, "./bin/bundle"
 set :bundle_options, lambda { %{--without development:test --path "#{bundle_path}" --deployment} }
 settings.rake_assets_precompile = lambda { "#{rake} assets:precompile" }
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log', 'tmp', 'Passengerfile.json']
+set :shared_paths, ["config/database.yml", "log", "tmp", "Passengerfile.json"]
 
 # Optional settings:
-set :user, 'deploy'    # Username in the server to SSH to.
+set :user, "account"    # Username in the server to SSH to.
 #   set :port, '30000'     # SSH port number.
 
 # This task is the environment that is loaded for most commands, such as
