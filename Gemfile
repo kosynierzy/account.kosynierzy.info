@@ -20,7 +20,7 @@ gem "devise", "~> 3.5.2"
 gem "doorkeeper", "~> 3.0.0"
 
 # background-processing
-gem "sidekiq", "~> 3.5.0"
+gem "sidekiq", "~> 4.0.1"
 gem "sinatra", "~> 1.4.6", require: false
 gem "devise-async", "~> 0.10.1"
 
@@ -30,27 +30,27 @@ gem "rails-i18n", "~> 4.0.4"
 
 # server
 gem "foreman", "~> 0.78.0"
-gem "sentry-raven", "~> 0.14.0"
+gem "sentry-raven", "~> 0.15.2"
 
 # utils
-gem "anima", "~> 0.2.0"
+gem "anima", "~> 0.3.0"
 
 # views
 gem "gravtastic", "~> 3.2.6"
 gem "multi_json", "~> 1.11.2"
-gem "representable", "~> 2.3.0"
+gem "representable", "~> 2.4.0"
 gem "slim-rails", "~> 3.0.1"
 
 group :development, :test do
   gem "brakeman", "~> 3.1.0"
-  gem "rspec-rails", "~> 3.3.3"
+  gem "rspec-rails", "~> 3.4.0"
   gem "letter_opener", "~> 1.4.1"
   gem "pry-rails", "~> 0.3.4"
 end
 
 group :development do
   gem "mina", "~> 0.3.7", require: false
-  gem "puma", "~> 2.13.4"
+  gem "puma", "~> 2.15.3"
 end
 
 group :test do
