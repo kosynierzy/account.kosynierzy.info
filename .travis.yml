@@ -12,7 +12,7 @@ script:
   - bundle exec brakeman -z
   - bundle exec rake spec
 rvm:
-  - "2.0.0"
+  - "2.2.3"
 env:
   - HOST: account.kosynierzy.dev
 notifications:
