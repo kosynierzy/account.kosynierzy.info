@@ -7,7 +7,7 @@ module Api
 
       def me
         if stale?(etag: current_user, last_modified: current_user.updated_at)
-          render json: profile_representation
+          render json: profile_representation.to_json
         end
       end
 
@@ -26,7 +26,7 @@ module Api
                      ListUsers.new(user: nil)
                    end
 
-        render json: use_case.call
+        render json: use_case.call.to_json
       end
 
       private

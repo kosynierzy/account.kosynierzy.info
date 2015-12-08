@@ -1,7 +1,11 @@
+redis = {
+  url: ENVied.REDIS_URL
+}
+
 Sidekiq.configure_server do |config|
-  config.redis = { namespace: "account:#{Rails.env}:sidekiq" }
+  config.redis = redis
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { namespace: "account:#{Rails.env}:sidekiq" }
+  config.redis = redis
 end

@@ -21,6 +21,6 @@ feature 'Sidekiq monitoring' do
     sign_in_with admin.email, password
     visit '/sidekiq'
 
-    expect(page).to have_content 'Sidekiq v3'
+    expect(page).to have_content 'Sidekiq v4'
   end
 end
