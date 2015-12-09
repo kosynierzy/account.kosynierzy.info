@@ -67,7 +67,7 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue "touch #{deploy_to}/#{shared_path}/tmp/restart.txt"
+      queue "#{deploy_to}/#{current_path}/bin/passenger-config restart-app"
     end
   end
 end
